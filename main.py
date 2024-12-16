@@ -20,7 +20,7 @@ def main():
         signer = NostrSigner.keys(keys)
 
         # Build an Event
-        message = "This is a signed event."
+        message = "Message"
         builder = EventBuilder.text_note(message)
 
         # Sign the Event
@@ -34,7 +34,7 @@ def main():
         print("Signed event Hash:", event_obj['id'])
         print("Signed event signature:", event_obj['sig'])
 
-        # print("Signed Event JSON:", event_json)
+        print("Signed Event JSON:", event_json)
 
         print("----------------------------------")
 
