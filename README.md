@@ -1,4 +1,4 @@
-# Nostr Event Signer
+# Nostr Event Signing Reference
 
 This project serves as a reference for signing a Nostr event using a specified private key. The application outputs the event hash (ID) and the signed hash (sig) to the CLI.
 
