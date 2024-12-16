@@ -46,7 +46,7 @@ This project serves as a reference for signing a Nostr event using a specified p
 
 Run the signing script:
 ```bash
-python main.py
+python sign_event.py
 ```
 
 ### Validating a Signature
