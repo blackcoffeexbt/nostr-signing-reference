@@ -18,12 +18,10 @@ async def run():
 
     # Build an Event
     message = "Message"
-    timestamp = 1734354144
     public_key = private_key.public_key.hex()
     event = Event(
         kind=EventKind.TEXT_NOTE,
         content=message,
-        created_at=timestamp,
         public_key=public_key
     )
 
