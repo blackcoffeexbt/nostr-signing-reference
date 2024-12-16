@@ -14,22 +14,25 @@ if not PRIVATE_KEY:
 def main():
     async def run():
         # Initialize Keys and Signer
-        print("Private Key:", PRIVATE_KEY)
         keys = Keys.parse(PRIVATE_KEY)
         signer = NostrSigner.keys(keys)
 
         # Collect inputs
-        kind = int(input("Enter event kind (e.g., 1): "))
-        content = input("Enter event content: ")
-        timestamp = int(input("Enter event timestamp (unix): "))
-        signature = input("Enter signature to validate: ")
+        # kind = int(input("Enter event kind (e.g., 1): "))
+        # content = input("Enter event content: ")
+        # timestamp = int(input("Enter event timestamp (unix): "))
+        # signature = input("Enter signature to validate: ")
+        kind = 1
+        content = "Message"
+        timestamp = 1734354144
+        signature = "259617c65f71136975c4ea729d2f2fc87cfe56be57f56d2ebac305dc0a02e608b9e4e9e8d26568822d7489ff492a479cd53dd69ed984fe110311797f00c0e119"
 
         nostr_timestamp = Timestamp.from_secs(timestamp)
 
         kind_instance = Kind(kind)
         # Build the event with provided details
-        builder = EventBuilder(kind_instance, content)
-        event = await builder.custom_created_at(nostr_timestamp).sign_with_keys(keys)
+        # builder = EventBuilder(kind_instance, content)
+        event = EventBuilder(Kind(1), content).custom_created_at(nostr_timestamp).sign_with_keys(keys)
 
         event_json = event.as_json()
         event_obj = json.loads(event_json)
@@ -39,7 +42,8 @@ def main():
         # print event json
         print("Event JSON:", event_json)
         # print event sig
-        print("Event Signature:", event_sig)
+        print("Expected Signature:", signature)
+        print("Event Signature:   ", event_sig)
 
         # Output validation result
         print("Validation Result:", "Valid" if is_valid else "Invalid")
