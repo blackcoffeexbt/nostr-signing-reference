@@ -88,6 +88,3 @@ Example:
 ```plaintext
 Validation Result: Valid
 ```
-
-## Notes
-- Ensure your private key is securely stored in the `.env` file.
